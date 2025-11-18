@@ -1,0 +1,125 @@
+{
+  "game": "Reefscape",
+  "version": "1.0.0",
+  "field": {
+    "width_meters": 16.46,
+    "length_meters": 8.23
+  },
+  "pieces": {
+    "coral": {
+      "points": 1,
+      "detection_class": "coral"
+    },
+    "algae": {
+      "points": 1,
+      "detection_class": "algae"
+    }
+  },
+  "zones": {
+    "reef_faces": {
+      "description": "6 reef faces with L1-L4 levels",
+      "faces": [
+        {
+          "face_id": 1,
+          "levels": {
+            "L1": {
+              "polygon": [],
+              "points": 1
+            },
+            "L2": {
+              "polygon": [],
+              "points": 2
+            },
+            "L3": {
+              "polygon": [],
+              "points": 3
+            },
+            "L4": {
+              "polygon": [],
+              "points": 4
+            }
+          }
+        },
+        {
+          "face_id": 2,
+          "levels": {
+            "L1": {"polygon": [], "points": 1},
+            "L2": {"polygon": [], "points": 2},
+            "L3": {"polygon": [], "points": 3},
+            "L4": {"polygon": [], "points": 4}
+          }
+        },
+        {
+          "face_id": 3,
+          "levels": {
+            "L1": {"polygon": [], "points": 1},
+            "L2": {"polygon": [], "points": 2},
+            "L3": {"polygon": [], "points": 3},
+            "L4": {"polygon": [], "points": 4}
+          }
+        },
+        {
+          "face_id": 4,
+          "levels": {
+            "L1": {"polygon": [], "points": 1},
+            "L2": {"polygon": [], "points": 2},
+            "L3": {"polygon": [], "points": 3},
+            "L4": {"polygon": [], "points": 4}
+          }
+        },
+        {
+          "face_id": 5,
+          "levels": {
+            "L1": {"polygon": [], "points": 1},
+            "L2": {"polygon": [], "points": 2},
+            "L3": {"polygon": [], "points": 3},
+            "L4": {"polygon": [], "points": 4}
+          }
+        },
+        {
+          "face_id": 6,
+          "levels": {
+            "L1": {"polygon": [], "points": 1},
+            "L2": {"polygon": [], "points": 2},
+            "L3": {"polygon": [], "points": 3},
+            "L4": {"polygon": [], "points": 4}
+          }
+        }
+      ]
+    },
+    "processor": {
+      "polygon": [],
+      "points": 5
+    },
+    "net": {
+      "polygon": [],
+      "points": 3
+    },
+    "barge": {
+      "polygon": [],
+      "points": 2
+    }
+  },
+  "event_detection": {
+    "hysteresis_frames": 5,
+    "possession_window_seconds": 2.0,
+    "min_confidence": 0.5
+  },
+  "alliances": {
+    "red": {
+      "color_ranges": {
+        "hue": [0, 10],
+        "saturation": [100, 255],
+        "value": [100, 255]
+      }
+    },
+    "blue": {
+      "color_ranges": {
+        "hue": [100, 130],
+        "saturation": [100, 255],
+        "value": [100, 255]
+      }
+    }
+  }
+}
+

@@ -1,0 +1,49 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Video files (too large for git)
+*.MOV
+*.mov
+*.mkv
+*.mp4
+*.avi
+*.MP4
+
+# Data directories with large files
+data/samples/*.mkv
+data/samples/*.mp4
+data/samples/*.MOV
+data/samples/*.mov
+inputs/*.mkv
+inputs/*.mp4
+inputs/*.MOV
+inputs/*.mov
+
+# Model files (uncomment if models are too large)
+# models/*.pt
+# models/*.onnx
+# models/*.pth
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Outputs (optional - uncomment if you don't want to track outputs)
+# outputs/
+

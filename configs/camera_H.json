@@ -1,0 +1,9 @@
+{
+  "camera_id": "default",
+  "homography_matrix": null,
+  "image_points": [],
+  "field_points": [],
+  "calibration_date": null,
+  "notes": "Run calibrate.py to generate homography matrix"
+}
+
