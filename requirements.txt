@@ -49,6 +49,7 @@ polars-runtime-32==1.35.2
 prettytable==3.17.0
 protobuf==6.33.1
 psutil==7.1.3
+pupil-apriltags==1.0.4.post11
 py-cpuinfo==9.0.0
 pyclipper==1.3.0.post6
 pycryptodome==3.23.0
@@ -82,7 +83,7 @@ typing-inspection==0.4.2
 typing_extensions==4.15.0
 tzdata==2025.2
 ujson==5.11.0
-ultralytics==8.3.228
+ultralytics==8.3.228  # Includes ByteTrack tracking (model.track() method)
 ultralytics-thop==2.0.18
 urllib3==2.5.0
 uvicorn==0.38.0
