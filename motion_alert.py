@@ -16,7 +16,7 @@ motion_on = False
 t_start = None
 
 # YOLO object detection system
-model = YOLO('yolo11n.pt')
+model = YOLO('models/yolo11n.pt')
 
 def now(): return time.time()
 def ts(sec): return f"{sec:.2f}s"

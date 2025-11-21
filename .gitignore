@@ -44,6 +44,10 @@ inputs/*.mov
 .DS_Store
 Thumbs.db
 
-# Outputs (optional - uncomment if you don't want to track outputs)
-# outputs/
+# Outputs - ignore video files but keep directory structure
+outputs/*.mp4
+outputs/*.mkv
+outputs/*.MOV
+outputs/*.mov
+outputs/*.avi
 

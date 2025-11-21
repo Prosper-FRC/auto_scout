@@ -2,8 +2,8 @@ from ultralytics import YOLO
 
 import ffmpeg
 
-input_file = 'test_traker.MOV'
-output_file = 'test_lessfpstracker.mp4'
+input_file = "inputs/IMG_3089.MOV"
+output_file = "inputs/test.mp4"
 target_fps = 10
 
 (
@@ -14,8 +14,8 @@ target_fps = 10
     .run()
 )
 
-model = YOLO('yolo11n.pt')
-results = model.track(source="test_lessfpstracker.mp4", show=True)
+model = YOLO('models/yolo11n.pt')
+results = model.track(source="inputs/test.mp4", show=True)
 
 # Each result has tracking IDs
 for r in results:
