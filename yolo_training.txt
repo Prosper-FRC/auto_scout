@@ -1,0 +1,46 @@
+What to Train On
+Option A — Bumper detection (recommended first)
+Label bounding boxes around red and blue bumpers.
+Classes: "red_bumper", "blue_bumper".
+Output: position + color → easy to assign alliance and approximate robot location.
+Option B — Robot body detection
+Label entire robot outline.
+Harder (shapes vary, frequent occlusions, reflections).
+Can be added later for more precise tracking.
+Workflow
+1. Gather Data
+Export frames from 10–20 match videos (ffmpeg or cv2.VideoCapture).
+300–1000 labeled images per class is enough for a baseline.
+Include lighting variety and partial occlusion.
+ffmpeg -i match.mp4 -vf fps=2 data/samples/frame_%04d.jpg
+2. Label
+Use a free tool:
+Label Studio (pip install label-studio) or
+Roboflow or
+CVAT (browser-based).
+Create labels:
+red_bumper
+blue_bumper
+Export dataset in YOLO format (.txt files beside images).
+3. Train YOLO
+Create a dataset config dataset.yaml:
+train: /path/to/dataset/train/images
+val: /path/to/dataset/val/images
+names:
+  0: red_bumper
+  1: blue_bumper
+Then train:
+pip install ultralytics
+yolo detect train data=dataset.yaml model=yolov8n.pt epochs=50 imgsz=960
+YOLO saves weights at runs/detect/train/weights/best.pt.
+4. Test / Export
+yolo detect predict model=runs/detect/train/weights/best.pt source=test.mp4
+yolo export model=best.pt format=onnx
+Use the .pt in your detect_track.py (Ultralytics API) or the .onnx for CPU inference.
+5. Validate
+Evaluate on a few unseen matches.
+Expect ~85–95 % detection accuracy if you labeled carefully.
+If false positives: add negatives (no-robot frames).
+6. Future Upgrades
+Add "coral", "algae", "game_piece" classes later.
+Train a small model per season; reuse your pipeline.
