@@ -138,7 +138,7 @@ if len(x_coords) > 0:
     plt.ylabel('X Position (pixels)')
     plt.title('X Position Over Time')
     plt.grid(True, alpha=0.3)
-    
+
     # Plot 2: Y position over time
     plt.subplot(2, 2, 2)
     plt.plot(frame_numbers, y_coords, 'r-', linewidth=2, marker='o', markersize=3)
