@@ -160,7 +160,7 @@ def main():
     
     # Load YOLO model
     print(f"\nLoading custom model...")
-    model = YOLO('models/my_model/my_model.pt')
+    model = YOLO('models/new_model/my_model.pt')
     
     # Run detection
     print(f"\nRunning detection on cropped video...")
@@ -191,19 +191,25 @@ def main():
         
         # Get bounding boxes
         boxes = result.boxes.xyxy.cpu().numpy()
+        class_ids = result.boxes.cls.cpu().numpy().astype(int) if result.boxes.cls is not None else []
         
         # Store bounding boxes for this timestamp
         if len(boxes) > 0:
             detection_data[timestamp_seconds] = []
-            for box in boxes:
+            for box, cid in zip(boxes, class_ids):
                 x1, y1, x2, y2 = map(int, box)
+                center_x = (x1 + x2) / 2
+                center_y = (y1 + y2) / 2
+                width = x2 - x1
+                height = y2 - y1
+                class_name = result.names[cid] if hasattr(result, "names") and cid in result.names else str(cid)
                 detection_data[timestamp_seconds].append({
-                    "x1": x1,
-                    "y1": y1,
-                    "x2": x2,
-                    "y2": y2
+                    "x,y": [center_x, center_y],
+                    "width": width,
+                    "height": height,
+                    "bumper": class_name #blue-bumper red-bumper
                 })
-                print(f"Frame {frame_number} ({timestamp_seconds:.2f}s): ({x1}, {y1}) to ({x2}, {y2})")
+                print(f"Frame {frame_number} ({timestamp_seconds:.2f}s): ({x1}, {y1}) to ({x2}, {y2}) class={class_name}")
         
         frame_number += 1
     
